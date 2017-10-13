@@ -98,7 +98,7 @@ static const int ddLogLevel = DDLogLevelAll;
     }
 
     //进入页面判断
-    int value = 2;
+    int value = 1;
     if (value == 2) {
         //根控制器
         RootViewController *rootTabBarController = [[RootViewController alloc]init];
