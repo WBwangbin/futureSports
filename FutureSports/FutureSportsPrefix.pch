@@ -1,0 +1,66 @@
+//
+//  FutureSportsPrefix.pch
+//  FutureSports
+//
+//  Created by wangbin on 2017/9/22.
+//  Copyright © 2017年 wangbin. All rights reserved.
+//
+
+
+/**
+ ***pch资源文件
+ **/
+
+#ifndef FutureSportsPrefix_pch
+#define FutureSportsPrefix_pch
+#endif /* FutureSportsPrefix_pch */
+
+
+//头文件
+#ifdef __OBJC__//oc头文件要用__OBJC__包含起来
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "ApiTool.h"//网络请求
+#import "HttpUrls.h"//网络请求头
+#import "KDefine.h"//网络请求头
+
+#import "SVUIConfig.h"//全局UI属性
+#import "WBPerferences.h"//偏好设置
+#import "SVNotificationEvent.h"//发送通知事件列表汇总
+#import "WBViewTool.h"//自定义工具
+#import "HyperlinksButton.h"//超链接按钮
+#import "UIColor+Hex.h"//颜色转换
+#import "MyHUD.h"//自定义加载提示
+#import "NetworkChangeMonitor.h"//网络实时监控
+#import "NSString+Trim.h"//字符串处理
+#import "SVCurrentDevice.h"//设备信息
+
+#endif
+
+
+//如果是DEBUG版本打印日志
+#ifdef DEBUG
+#define NSLog(...) NSLog(__VA_ARGS__);
+#else
+#define NSLog(...)
+#endif
+
+//自动布局引入头文件及开启宏定义
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+//masonry
+#ifdef __OBJC__
+#import <QuartzCore/QuartzCore.h>
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+#import "Masonry.h"
+#endif
+
+
+

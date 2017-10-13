@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Document</title>
+	<style>
+#faqList{
+padding:0px;
+}
+#faqList li{
+padding:10px 0px;
+border-top:1px solid #18314A;
+}
+#faqList li:last-child{
+border-bottom:1px solid #18314A;
+}
+#faqList li span{
+color:#298CC6;
+display: block;
+padding-right:30px;
+background: url(faq_hidden.png) no-repeat center right;
+}
+#faqList li p{
+display: none;
+color:#29D6EF;
+}
+</style>
+</head>
+<body>
+	<ol id='faqList'>
+		<li>
+		<span>1.视频测试的内容包括哪些？</span>
+		<p>
+			手机版支持中国区域优酷、搜狐、爱奇艺、腾讯的视频测试，海外测试Youtube的视频。
+		</p>
+		</li>
+		<li>
+		<span>2.U-vMOS得分低，如何能够说明网络不满足要求，也可能是视频源服务器、WIFI接入效果导致？</span>
+		<p>
+			U-vMOS得分低，不能绝对证明网络不满足要求，但可以说明网络距离观看4K是有提升空间的。
+		</p>
+		</li>
+		<li>
+		<span>3.是否支持Netflix的U-vMOS测试？</span>
+		<p>
+			不支持。
+		</p>
+		</li>
+		<li>
+		<span>4.为什么会出现U-vMOS单项得分很高但是总分很低的情况？</span>
+		<p>
+			这是一种正常现象，总分不是单项的简单平均。简单来说U-vMOS总分是在sQuality的基础上进行减分，减分的程度取决于sInteraction和sView两者损伤的累积。在完全没有损伤的情况下，总分等于sQuality。
+		</p>
+		</li>
+		<li>
+		<span>5.什么原因可能导致U-vMOS的值为“--”？</span>
+		<p>
+			可能原因：网络较差，视频的播放时间为0；或视频源播放失败。均会导致U-vMOS计算失败。
+		</p>
+		</li>
+		<li>
+		<span>6.不同手机终端（例如荣耀6和Mate8）为什么带宽测速不一样？</span>
+		<p>
+			带宽测速除了与网络，服务器有关系外，终端本身的能力也会有较大影响，如WIFI模块处理性能，CPU处理能力等。
+		</p>
+		</li>
+		<li>
+		<span>7.测试4K视频时为什么视频画面不显示？</span>
+		<p>
+			4K视频测试对手机资源消耗大，为保证测试流畅，因此关闭视频显示，但不影响测试结果。
+		</p>
+		</li>
+		<li>
+		<span>8.测试失败如何处理？</span>
+		<p>
+			如果测试失败，建议更换其他视频源或带宽服务器，或者换一个Wi-Fi，再尝试测试一下。同时可在“设置”页面点击“上传日志”，帮助SpeedPro持续优化测试体验。
+		</p>
+		</li>		
+		<li>
+		<span>9.高级设置的参数都有什么含义？</span>
+		<p>
+			总播放时长：即视频的播放时长，默认1min，最多可选择播放10分钟。若视频时长不足10分钟，则按视频时长测试。其中国内视频一般做了分片，一次测试最多测试一段分片视频，约5分钟。</br>
+			视频建议质量：即视频的分辨率，可测试不同清晰度视频的质量体验。</br>
+			带宽测试/带宽测试服务器配置：默认开启带宽测试，可拨动按钮关闭带宽测试。默认自动选择离用户最近的带宽服务器进行测试，可单击“变更您的服务器”指定带宽测试服务器。</br>
+		</p>
+		</li>
+	</ol>
+</body>
+<script>
+
+function getId(x){
+    return document.getElementById(x);
+};
+getId('faqList').onclick=function(e){
+    console.log(e);
+    
+    var domTitle=e.target.localName;
+    if(domTitle=='span'){
+        
+        if(e.target.nextElementSibling.style.canshow == undefined ||  e.target.nextElementSibling.style.canshow){
+            e.target.nextElementSibling.style.display='block';
+            e.target.style.background='url(faq_show.png) no-repeat center right';
+            e.target.nextElementSibling.style.canshow=false;
+        }else
+        {
+            e.target.nextElementSibling.style.display='none';
+            e.target.style.background='url(faq_hidden.png) no-repeat center right';
+            e.target.nextElementSibling.style.canshow=true;
+        }
+        
+    }
+};
+
+    </script>
+<script type="text/JavaScript">
+    
+    window.onload=function(){
+        document.documentElement.style.webkitTouchCallout='none';
+        document.documentElement.style.webkitUserSelect='none';
+    };
+</script>
+
+</html>
